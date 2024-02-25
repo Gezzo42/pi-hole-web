@@ -117,7 +117,8 @@ function checkfile($filename)
 //   Return the string containing URL + "?v=xxx", where xxx is the last modified time of the file.
 function fileversion($url)
 {
-    $filename = $_SERVER['DOCUMENT_ROOT'].'/admin/'.$url;
+    global $setupVars;
+    $filename = $_SERVER['DOCUMENT_ROOT'].'/'.$setupVars['ADMIN_INTERFACE_SUBDIR'].'/'.$url;
     $ver = 0;  // Default
     if (file_exists($filename)) {
         $ver = filemtime($filename);
